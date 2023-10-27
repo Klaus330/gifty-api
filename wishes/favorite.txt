@@ -1,0 +1,35 @@
+// POST localhost:80/wishes/{userId}/favorite
+payload: {
+    'wish_id': 1,
+    'token': 'token' <--- cel salvat in cookie
+}
+
+response - ok: {
+    "status": 200,
+    "data": {
+        "message": "You added the wish to favorites."
+    },
+    "errors": []
+}
+
+response - errror: {
+    "status": 500,
+    "data": {},
+    "errors": [
+        {
+            "message": "Something went wrong",
+            'status': 500
+        }
+    ]
+}
+
+response - errror: {
+    "status": 500,
+    "data": {},
+    "errors": [
+        {
+            "message": "Wish could not be favorite",
+            'status': 500
+        }
+    ]
+}

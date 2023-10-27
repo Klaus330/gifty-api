@@ -1,0 +1,45 @@
+// GET localhost:80/account/claimed-wishes <--- returns a list of wishes that you've claimed
+response - ok : {
+    'status' : 200,
+    'data' : {
+        'wishes':[
+            {
+                'id': 1,
+                'name' : 'Masina cu telecomanda',
+                'is_favorite': true,
+                'is_claimed': false,
+                'quantity' : 1,
+                'price': 300,
+                'image': '/images/wishes/masina.jpg',
+                'link': 'https://www.emag.ro/masina-rc-cu-telecomanda-road-truck-1-10-4wd-viteza-maxima-70-km-h-vk-scy-16102-1/pd/D7BHCMYBM/?ref=profiled_categories_home_9_3&provider=rec&recid=rec_50_284525e4bcc1b5b15b6a93265b01077851669515e140fc72639efcb9c2adb06c_1698429392&scenario_ID=50',
+                'owner_id': 3,
+                "owner_image": '/images/users/asdasd.jpg',
+            },
+            ...
+        ],
+        'pagination': {
+            'current_page': 1,
+            'no_pages': 5,
+            'items_per_page': 10
+        }
+    },
+    'errors': []
+}
+
+response - error: {
+    'status': 200,
+    'data': {
+        'wishes': [],
+        'pagination': {
+            'current_page': 1,
+            'no_pages': 0,
+            'items_per_page': 0
+        }
+    },
+    'errors': [
+        {
+            'message': "No claimed wishes were found",
+            'status': 404
+        }
+    ]
+}

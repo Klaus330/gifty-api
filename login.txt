@@ -1,0 +1,68 @@
+
+// POST localhost:80/login
+payload: {
+    'email' : ' joe@example.com',
+    'password' : 'password'
+}
+response - ok: {
+    "token": 'token' --> asta o sa fie salvat intr-un cookie,
+    "status": 200,
+    "error": [],
+
+}
+
+response - error: {
+    'status': 500,
+    error: [
+        {
+            'message': ' Something went wrong'
+            'status': 500
+        }
+    ]
+}
+
+response - validation error: {
+ 'status': 400,
+    error: [
+        {
+            "message": "Please provide some valid credentials",
+            'status': 400
+        }
+    ]
+}
+
+----------------------------------------------------------------
+// POST localhost:80/register
+{
+    'bdate': '2000-03-03',
+    'email' : ' joe@example.com',
+    'password' : 'password',
+    'password_confirmation' : 'password'
+}
+
+response - ok: {
+    "token": 'token',
+    "status": 200,
+    "error": [],
+
+}
+
+response - error: {
+    'status': 500,
+    error: [
+        {
+            'message': ' Something went wrong'
+            'status': 500
+        }
+    ]
+}
+
+response - validation error: {
+ 'status': 400,
+    error: [
+        {
+            "password": "Password is too short",
+            "password_confirmation": "The two passwords do not match",
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+// POST localhost:80/account/{userId}/update
+payload: {
+    'id': 1,
+    'email': 'user@example.com',
+    'name': 'John Doe',
+    'image': ...
+    'token': 'token' <--- cel salvat in cookie
+}
+
+response - ok: {
+    "status": 200,
+    "data": {
+        "message": "You updated your account successfully." 
+    },
+    "errors": []
+}
+
+response - errror: {
+    "status": 500,
+    "data": {},
+    "errors": [
+        {
+            "message": "Something went wrong",
+            'status': 404
+        }
+    ]
+}

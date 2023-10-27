@@ -1,0 +1,42 @@
+// POST localhost/wishes/{userId}/add
+payload: {
+    'name' : 'Masina cu telecomanda',
+    'is_favorite': false,
+    'quantity' : 1,
+    'price': 300,
+    'image' ---> see how to upload files in an HTTP request(https://uploadcare.com/blog/how-to-upload-files-using-js/)
+    'link': 'https://www.emag.ro/masina-rc-cu-telecomanda-road-truck-1-10-4wd-viteza-maxima-70-km-h-vk-scy-16102-1/pd/D7BHCMYBM/?ref=profiled_categories_home_9_3&provider=rec&recid=rec_50_284525e4bcc1b5b15b6a93265b01077851669515e140fc72639efcb9c2adb06c_1698429392&scenario_ID=50',
+    'token': 'token' <--- cel salvat in cookie
+}
+
+response - ok: {
+    "status": 200,
+    "data": {
+        "message": "Your wish has been created successfully"
+    },
+    "errors": []
+}
+
+response - errror: {
+    "status": 500,
+    "data": {},
+    "errors": [
+        {
+            "message": "Something went wrong",
+            'status': 404
+        }
+    ]
+}
+
+response - validation error: {
+    "status": 400,
+    "data": {},
+    "errors": [
+        {
+            "name": "The name should be at least 2 characters",
+            "link": "Unkown link",
+            "quantity": "quantity should not be lower than 1",
+            'status': 500
+        }
+    ]
+}

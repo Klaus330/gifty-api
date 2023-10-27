@@ -1,0 +1,36 @@
+// POST localhost:80/wishes/{userId}/unclaim
+payload: {
+    'claimer_id' : 1,
+    'wish_id' : 1,
+    'token': 'token' <--- cel salvat in cookie
+}
+
+response - ok: {
+    "status": 200,
+    "data": {
+        "message": "You unclaimed the wish from that user."
+    },
+    "errors": []
+}
+
+response - errror: {
+    "status": 500,
+    "data": {},
+    "errors": [
+        {
+            "message": "Something went wrong",
+            'status': 500
+        }
+    ]
+}
+
+response - errror: {
+    "status": 500,
+    "data": {},
+    "errors": [
+        {
+            "message": "Wish could not be unclaimed",
+            'status': 500
+        }
+    ]
+}
